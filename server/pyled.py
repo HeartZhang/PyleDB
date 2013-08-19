@@ -27,6 +27,7 @@ class PyleDB:
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind(("", self.port))
         sock.listen(5)
+        print "Pyle Daemon has started."
         while True:
             obj, addr = sock.accept()
             thread = threading.Thread(target=self.handle, args=(obj, addr[0]))
